@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const port = 3000;
+const port = process.env.PORT;
 
 let dev_db_url = null;
 let mongoDb = process.env.MONGODB_URI || dev_db_url;
