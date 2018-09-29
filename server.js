@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 var multer = require('multer');
-var fs = require('fs');
+
 dotenv.config();
 
 const port = process.env.PORT;
