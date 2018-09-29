@@ -1,5 +1,5 @@
 const Post = require('../models/post.model');
-
+var fs = require('fs');
 //simple version, witout validation or sanitation
 exports.test = function(req, res){
     res.send('Greetings from the Test Controller!');
@@ -15,8 +15,12 @@ exports.all = function(req, res){
 exports.create = function(req, res){
     let post = new Post({
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
     });
+    post.image.data = fs.readFileSync(req.files.userPhoto.path);
+    post.image.contentType ='image/png';
+
+    
 
     post.save(function(err, result){
         if(err) return next(err);
