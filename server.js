@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 var multer = require('multer');
-
+var morgan = require('morgan');
 dotenv.config();
 
 const port = process.env.PORT;
@@ -16,6 +16,9 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express();
+
+app.use(morgan('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));// for parsing application/x-www-form-urlencoded
 
