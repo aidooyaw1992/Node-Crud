@@ -17,8 +17,8 @@ exports.create = function(req, res){
         title: req.body.title,
         content: req.body.content,
     });
-    post.image.data = fs.readFileSync(req.files.userPhoto.path);
-    post.image.contentType ='image/png';
+    // post.image.data = fs.readFileSync(req.files.userPhoto.path);
+    // post.image.contentType ='image/png';
 
     
 
